@@ -1,26 +1,15 @@
-// abstract class AppPages {
-//   AppPages._();
-//
-//   static final routes = [
-//   GetPage(
-//   name: AppRoutes.splash,
-//   page: SplashScreen.new,
-//   binding: SplashBinding(),
-//   ),
-//   GetPage(
-//   name: AppRoutes.login,
-//   page: LoginScreen.new,
-//   binding: LoginBinding(),
-//   ),
-//   GetPage(
-//   name: AppRoutes.contentDetail,
-//   page: ContentDetailScreen.new,
-//   binding: ContentDetailBinding(),
-//   ),
-//   GetPage(
-//   name: AppRoutes.search,
-//   page: SearchScreen.new,
-//   binding: SearchBinding(),
-//   ),
-//   .....
-// }
+enum AppPage {
+  home;
+  //...;
+
+  String get path {
+    switch (this) {
+      case AppPage.home:
+        return '/';
+      // case AppPage.settings:
+      //   return '/settings';
+    }
+  }
+
+  String get name => toString().split('.').last;
+}
