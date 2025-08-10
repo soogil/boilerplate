@@ -1,0 +1,27 @@
+<templateSet group="Dart">
+  <template name="freezed" value="import 'package:freezed_annotation/freezed_annotation.dart';&#10;import 'package:flutter/foundation.dart';&#10;&#10;part '$NAME$.freezed.dart';&#10;&#10;part '$NAME$.g.dart';&#10;&#10;@freezed&#10;@JsonSerializable&#10;class $CAP_NAME$ with _$$$CAP_NAME$ {&#10;  const factory $CAP_NAME$({&#10;    $END$&#10;  }) = _$CAP_NAME$;&#10;  &#10;  factory $CAP_NAME$.fromJson(Map&lt;String, Object?&gt; json) =&gt; _$$$CAP_NAME$FromJson(json); &#10;}" description="" toReformat="false" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CAP_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="rpvm" value="import 'package:riverpod_annotation/riverpod_annotation.dart';&#10;part '$FILE_NAME$.g.dart';&#10;&#10;@riverpod&#10;class $CLASS_NAME$ extends _$${CLASS_NAME}$ {&#10;  @override&#10;  $STATE_TYPE$ build() {&#10;    // TODO: 초기 상태&#10;    return $INITIAL_STATE$;&#10;  }&#10;&#10;  void update($STATE_TYPE$ value) {&#10;    state = value;&#10;  }&#10;}" toReformat="false" toShortenFQNames="true">
+    <variable name="FILE_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CLASS_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="STATE_TYPE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="INITIAL_STATE" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+  <template name="rpvm_async" value="import 'package:riverpod_annotation/riverpod_annotation.dart';&#10;part '$FILE_NAME$.g.dart';&#10;&#10;@riverpod&#10;class $CLASS_NAME$ extends _$${CLASS_NAME}$ {&#10;  @override&#10;  FutureOr&lt;$DATA_TYPE$&gt; build() async {&#10;    // TODO: 초기 로드&#10;    return $INITIAL_DATA$;&#10;  }&#10;&#10;  Future&lt;void&gt; refresh() async {&#10;    state = const AsyncLoading();&#10;    state = await AsyncValue.guard(() async {&#10;      // TODO: 데이터 새로고침&#10;      return $INITIAL_DATA$;&#10;    });&#10;  }&#10;&#10;  Future&lt;void&gt; setData($DATA_TYPE$ value) async {&#10;    state = AsyncData(value);&#10;  }&#10;}" toReformat="false" toShortenFQNames="true">
+    <variable name="FILE_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="CLASS_NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="DATA_TYPE" expression="" defaultValue="" alwaysStopAt="true" />
+    <variable name="INITIAL_DATA" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="DART" value="true" />
+    </context>
+  </template>
+</templateSet>
