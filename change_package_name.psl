@@ -1,0 +1,13 @@
+#!/bin/bash
+NEW_PACKAGE="com.newcompany.newapp"
+NEW_NAME="My New App"
+NEW_IMPORT="new_project"
+
+# 1. 앱 패키지명 변경
+flutter pub run change_app_package_name:main $NEW_PACKAGE
+
+# 2. 앱 이름 변경
+flutter pub run rename --appname "$NEW_NAME" --bundleId $NEW_PACKAGE
+
+# 3. Dart import 변경
+grep -rl "package:boilerplate" lib/ | xargs sed -i '' "s/package:boilerplate/package:$NEW_IMPORT/g"
