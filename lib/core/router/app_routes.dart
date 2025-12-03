@@ -1,5 +1,5 @@
 import 'package:boilerplate/core/router/app_pages.dart';
-import 'package:boilerplate/presentation/view/home_page.dart';
+import 'package:boilerplate/feature/auth/presentation/login/login_page.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
@@ -18,16 +18,16 @@ final routerProvider = Provider<GoRouter>((ref) {
       return null;
     },
     routes: [
-      GoRoute(
-        path: AppPage.home.path,
-        name: AppPage.home.name,
-        builder: (context, state) => const HomePage(),
-      ),
       // GoRoute(
-      //   path: AppPage.login.path,
-      //   name: AppPage.login.name,
-      //   builder: (context, state) => const LoginPage(),
+      //   path: AppPage.home.path,
+      //   name: AppPage.home.name,
+      //   builder: (context, state) => const HomePage(),
       // ),
+      GoRoute(
+        path: AppPage.login.path,
+        name: AppPage.login.name,
+        builder: (context, state) => const LoginPage(),
+      ),
     ],
   );
 });
