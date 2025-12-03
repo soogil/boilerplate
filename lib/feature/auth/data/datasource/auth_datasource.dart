@@ -1,5 +1,10 @@
+import 'package:boilerplate/core/api/dio.dart';
 import 'package:boilerplate/feature/auth/data/models/user_model.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 
+part 'auth_datasource.g.dart';
 
 abstract class AuthDataSource {
   Future<UserModel> login({
@@ -9,23 +14,32 @@ abstract class AuthDataSource {
 }
 
 /// 예제용 Fake 구현 (테스트/샘플용)
-class FakeAuthDataSource implements AuthDataSource {
+class AuthDatasourceImpl implements AuthDataSource {
+  AuthDatasourceImpl(this._dio);
+
+  final Dio _dio;
+
   @override
   Future<UserModel> login({
     required String email,
     required String password,
   }) async {
-    // 네트워크 지연 시뮬레이션
-    await Future.delayed(const Duration(seconds: 1));
+    final response = await _dio.post(
+      '/auth/login',
+      data: {
+        'email': email,
+        'password': password,
+      },
+    );
 
-    if (email == 'test@test.com' && password == '1234') {
-      return UserModel(
-        id: '1',
-        email: email,
-        name: 'Test User',
-      );
-    } else {
-      throw Exception('Invalid email or password');
-    }
+    // API 응답 구조에 맞게 수정 필요
+    final data = response.data as Map<String, dynamic>;
+    return UserModel.fromJson(data);
   }
+}
+
+@riverpod
+AuthDataSource authDataSource(Ref ref) {
+  final dio = ref.watch(dioClientProvider);
+  return AuthDatasourceImpl(dio);
 }
