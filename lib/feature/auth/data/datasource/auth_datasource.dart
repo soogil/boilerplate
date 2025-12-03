@@ -32,7 +32,6 @@ class AuthDatasourceImpl implements AuthDataSource {
       },
     );
 
-    // API 응답 구조에 맞게 수정 필요
     final data = response.data as Map<String, dynamic>;
     return UserModel.fromJson(data);
   }

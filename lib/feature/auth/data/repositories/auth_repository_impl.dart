@@ -7,6 +7,7 @@ import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auth_repository_impl.g.dart';
 
+// 도메인 repository 실제 구현체
 class AuthRepositoryImpl implements AuthRepository {
   final AuthDataSource _dataSource;
 

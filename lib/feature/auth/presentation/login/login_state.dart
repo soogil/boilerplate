@@ -1,4 +1,3 @@
-import 'package:boilerplate/feature/auth/data/models/user_model.dart';
 import 'package:boilerplate/feature/auth/domain/entities/user.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
