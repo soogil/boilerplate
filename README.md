@@ -5,7 +5,7 @@
 ```text
 ├── android/                  # Android native project
 ├── ios/                      # iOS native project
-├── lib/                      # Flutter application code
+├── lib/                      
 │   ├── core/                 # 공통 인프라 (라우터, 테마, 유틸 등)
 │   │   ├── config/           # 환경설정, 상수, Env
 │   │   ├── router/           # GoRouter 설정
@@ -17,7 +17,6 @@
 │   │       ├── domain/       # Entity, Repository interface, UseCase
 │   │       └── presentation/ # ViewModel, State, Screen(UI)
 │   └── main.dart             # 앱 엔트리 포인트
-├── settings/                 # IDE / 툴 설정
 ├── test/                     # 테스트 코드
 │   └── feature/
 │       └── auth/             # Auth 도메인 테스트 예시
