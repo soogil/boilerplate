@@ -1,4 +1,4 @@
-# boilerplate
+# boilerplate-riverpod
 
 ## 폴더 구조
 
