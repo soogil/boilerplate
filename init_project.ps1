@@ -1,3 +1,7 @@
+# 사용법:
+# ./init_project.ps1 "My App Name" com.company.myapp my_app
+# "앱이름" 번들ID pubspec_name 순서
+
 param(
     [Parameter(Mandatory = $true)][string]$AppName,
     [Parameter(Mandatory = $true)][string]$BundleId,

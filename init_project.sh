@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # 사용법:
-# ./init.sh "My App Name" com.company.myapp my_app
+# ./init_project.sh "My App Name" com.company.myapp my_app
 # "앱이름" 번들ID pubspec_name 순서
 
 APP_NAME=$1
