@@ -16,29 +16,26 @@ class LoginViewModel extends _$LoginViewModel {
     required String email,
     required String password,
   }) async {
-    // 상태: 로딩
-    state = state.copyWith(
-      status: LoginStatus.loading,
-      errorMessage: null,
-    );
+    // 1. 로딩 상태로 변경 (UI 반응: 로딩 인디케이터 표시)
+    state = state.copyWith(authState: const AsyncValue.loading());
 
-    try {
-      final useCase = ref.read(loginUseCaseProvider);
-      final user = await useCase(
+    // 2. UseCase 실행 (TaskEither 실행)
+    final result = await ref.read(loginUseCaseProvider).call(
         email: email,
-        password: password,
-      );
+        password: password
+    ).run();
 
-      state = state.copyWith(
-        status: LoginStatus.success,
-        user: user,
-      );
-    } catch (e) {
-      state = state.copyWith(
-        status: LoginStatus.failure,
-        errorMessage: e.toString(),
-      );
-    }
+    // 3. 결과 처리 (Fold)
+    state = result.fold(
+      // 실패 시: 에러 상태로 변경 (UI 반응: 팝업)
+          (failure) => state.copyWith(
+        authState: AsyncValue.error(failure, StackTrace.current),
+      ),
+      // 성공 시: 데이터 상태로 변경 (UI 반응: 페이지 이동)
+          (user) => state.copyWith(
+        authState: AsyncValue.data(user),
+      ),
+    );
   }
 
   void reset() {

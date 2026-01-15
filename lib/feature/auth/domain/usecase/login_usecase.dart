@@ -1,7 +1,9 @@
+import 'package:boilerplate/core/api/failure.dart';
 import 'package:boilerplate/feature/auth/data/repositories/auth_repository_impl.dart';
 import 'package:boilerplate/feature/auth/domain/entities/user.dart';
 import 'package:boilerplate/feature/auth/domain/repositories/auth_repository.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:fpdart/fpdart.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'login_usecase.g.dart';
@@ -12,7 +14,7 @@ class LoginUseCase {
 
   LoginUseCase(this._authRepository);
 
-  Future<User> call({
+  TaskEither<Failure, User> call({
     required String email,
     required String password,
   }) {

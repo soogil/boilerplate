@@ -14,9 +14,7 @@ T _$identity<T>(T value) => value;
 
 /// @nodoc
 mixin _$LoginState {
-  LoginStatus get status;
-  User? get user;
-  String? get errorMessage;
+  AsyncValue<User?> get authState;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -30,18 +28,16 @@ mixin _$LoginState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is LoginState &&
-            (identical(other.status, status) || other.status == status) &&
-            (identical(other.user, user) || other.user == user) &&
-            (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage));
+            (identical(other.authState, authState) ||
+                other.authState == authState));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, user, errorMessage);
+  int get hashCode => Object.hash(runtimeType, authState);
 
   @override
   String toString() {
-    return 'LoginState(status: $status, user: $user, errorMessage: $errorMessage)';
+    return 'LoginState(authState: $authState)';
   }
 }
 
@@ -51,7 +47,7 @@ abstract mixin class $LoginStateCopyWith<$Res> {
           LoginState value, $Res Function(LoginState) _then) =
       _$LoginStateCopyWithImpl;
   @useResult
-  $Res call({LoginStatus status, User? user, String? errorMessage});
+  $Res call({AsyncValue<User?> authState});
 }
 
 /// @nodoc
@@ -66,23 +62,13 @@ class _$LoginStateCopyWithImpl<$Res> implements $LoginStateCopyWith<$Res> {
   @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? status = null,
-    Object? user = freezed,
-    Object? errorMessage = freezed,
+    Object? authState = null,
   }) {
     return _then(_self.copyWith(
-      status: null == status
-          ? _self.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as LoginStatus,
-      user: freezed == user
-          ? _self.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User?,
-      errorMessage: freezed == errorMessage
-          ? _self.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
+      authState: null == authState
+          ? _self.authState
+          : authState // ignore: cast_nullable_to_non_nullable
+              as AsyncValue<User?>,
     ));
   }
 }
@@ -180,14 +166,13 @@ extension LoginStatePatterns on LoginState {
 
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>(
-    TResult Function(LoginStatus status, User? user, String? errorMessage)?
-        $default, {
+    TResult Function(AsyncValue<User?> authState)? $default, {
     required TResult orElse(),
   }) {
     final _that = this;
     switch (_that) {
       case _LoginState() when $default != null:
-        return $default(_that.status, _that.user, _that.errorMessage);
+        return $default(_that.authState);
       case _:
         return orElse();
     }
@@ -208,13 +193,12 @@ extension LoginStatePatterns on LoginState {
 
   @optionalTypeArgs
   TResult when<TResult extends Object?>(
-    TResult Function(LoginStatus status, User? user, String? errorMessage)
-        $default,
+    TResult Function(AsyncValue<User?> authState) $default,
   ) {
     final _that = this;
     switch (_that) {
       case _LoginState():
-        return $default(_that.status, _that.user, _that.errorMessage);
+        return $default(_that.authState);
       case _:
         throw StateError('Unexpected subclass');
     }
@@ -234,13 +218,12 @@ extension LoginStatePatterns on LoginState {
 
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>(
-    TResult? Function(LoginStatus status, User? user, String? errorMessage)?
-        $default,
+    TResult? Function(AsyncValue<User?> authState)? $default,
   ) {
     final _that = this;
     switch (_that) {
       case _LoginState() when $default != null:
-        return $default(_that.status, _that.user, _that.errorMessage);
+        return $default(_that.authState);
       case _:
         return null;
     }
@@ -250,16 +233,11 @@ extension LoginStatePatterns on LoginState {
 /// @nodoc
 
 class _LoginState implements LoginState {
-  const _LoginState(
-      {this.status = LoginStatus.initial, this.user, this.errorMessage});
+  const _LoginState({this.authState = const AsyncValue.data(null)});
 
   @override
   @JsonKey()
-  final LoginStatus status;
-  @override
-  final User? user;
-  @override
-  final String? errorMessage;
+  final AsyncValue<User?> authState;
 
   /// Create a copy of LoginState
   /// with the given fields replaced by the non-null parameter values.
@@ -274,18 +252,16 @@ class _LoginState implements LoginState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _LoginState &&
-            (identical(other.status, status) || other.status == status) &&
-            (identical(other.user, user) || other.user == user) &&
-            (identical(other.errorMessage, errorMessage) ||
-                other.errorMessage == errorMessage));
+            (identical(other.authState, authState) ||
+                other.authState == authState));
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, status, user, errorMessage);
+  int get hashCode => Object.hash(runtimeType, authState);
 
   @override
   String toString() {
-    return 'LoginState(status: $status, user: $user, errorMessage: $errorMessage)';
+    return 'LoginState(authState: $authState)';
   }
 }
 
@@ -297,7 +273,7 @@ abstract mixin class _$LoginStateCopyWith<$Res>
       __$LoginStateCopyWithImpl;
   @override
   @useResult
-  $Res call({LoginStatus status, User? user, String? errorMessage});
+  $Res call({AsyncValue<User?> authState});
 }
 
 /// @nodoc
@@ -312,23 +288,13 @@ class __$LoginStateCopyWithImpl<$Res> implements _$LoginStateCopyWith<$Res> {
   @override
   @pragma('vm:prefer-inline')
   $Res call({
-    Object? status = null,
-    Object? user = freezed,
-    Object? errorMessage = freezed,
+    Object? authState = null,
   }) {
     return _then(_LoginState(
-      status: null == status
-          ? _self.status
-          : status // ignore: cast_nullable_to_non_nullable
-              as LoginStatus,
-      user: freezed == user
-          ? _self.user
-          : user // ignore: cast_nullable_to_non_nullable
-              as User?,
-      errorMessage: freezed == errorMessage
-          ? _self.errorMessage
-          : errorMessage // ignore: cast_nullable_to_non_nullable
-              as String?,
+      authState: null == authState
+          ? _self.authState
+          : authState // ignore: cast_nullable_to_non_nullable
+              as AsyncValue<User?>,
     ));
   }
 }
