@@ -1,7 +1,6 @@
 import 'package:boilerplate/core/api/dio.dart';
 import 'package:boilerplate/feature/auth/data/models/user_model.dart';
 import 'package:dio/dio.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 
 part 'auth_datasource.g.dart';

@@ -4,14 +4,6 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'login_state.freezed.dart';
 
-
-enum LoginStatus {
-  initial,
-  loading,
-  success,
-  failure,
-}
-
 @freezed
 abstract class LoginState with _$LoginState {
   const factory LoginState({

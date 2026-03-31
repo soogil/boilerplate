@@ -1,5 +1,61 @@
 # boilerplate-riverpod
 
+Flutter Clean Architecture 보일러플레이트 — Riverpod + GoRouter + Freezed + fpdart
+
+자세한 구조 설명은 [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md)를 참고하세요.
+
+---
+
+## 빠른 시작
+
+### 1. 보일러플레이트 클론
+
+```bash
+git clone <repo-url> my_new_app
+cd my_new_app
+flutter pub get
+```
+
+### 2. 프로젝트 초기화 (앱 이름 / 번들 ID / 패키지명 일괄 변경)
+
+```bash
+dart run init_project.dart "My App" com.company.myapp my_app
+```
+
+| 파라미터 | 설명 | 예시 |
+|---|---|---|
+| `"앱 이름"` | 기기에 표시되는 앱 이름 | `"My App"` |
+| `번들 ID` | Android 패키지명 / iOS 번들 ID | `com.company.myapp` |
+| `pubspec 이름` | Dart 패키지명 (snake_case) | `my_app` |
+
+### 3. 코드 생성
+
+```bash
+flutter pub run build_runner build --delete-conflicting-outputs
+```
+
+### 4. 실행
+
+```bash
+flutter run
+```
+
+---
+
+## 기술 스택
+
+| 분류 | 패키지 |
+|---|---|
+| 상태관리 / DI | flutter_riverpod, riverpod_annotation, riverpod_generator |
+| 네트워크 | dio |
+| 라우팅 | go_router |
+| 불변 모델 | freezed, freezed_annotation |
+| JSON 직렬화 | json_serializable, json_annotation |
+| 함수형 에러처리 | fpdart (Either, TaskEither) |
+| 코드 생성 | build_runner |
+
+---
+
 ## 폴더 구조
 
 ```text
@@ -23,10 +79,3 @@
 ├── pubspec.yaml
 └── README.md
 ```
-## 기술 스택 & 패턴
-
-- **Riverpod** — 상태관리 / DI
-- **Freezed** — 모델 / 상태 정의
-- **Dio** — REST API 통신
-- **GoRouter** — 라우팅 구조
-- **build_runner / json_serializable** — 코드 생성  

@@ -6,21 +6,46 @@ part of 'login_usecase.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$loginUseCaseHash() => r'8331b2822e94a6be9130a687200fab1799794d55';
+// GENERATED CODE - DO NOT MODIFY BY HAND
+// ignore_for_file: type=lint, type=warning
 
-/// See also [loginUseCase].
 @ProviderFor(loginUseCase)
-final loginUseCaseProvider = AutoDisposeProvider<LoginUseCase>.internal(
-  loginUseCase,
-  name: r'loginUseCaseProvider',
-  debugGetCreateSourceHash:
-      const bool.fromEnvironment('dart.vm.product') ? null : _$loginUseCaseHash,
-  dependencies: null,
-  allTransitiveDependencies: null,
-);
+final loginUseCaseProvider = LoginUseCaseProvider._();
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
-typedef LoginUseCaseRef = AutoDisposeProviderRef<LoginUseCase>;
-// ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+final class LoginUseCaseProvider
+    extends $FunctionalProvider<LoginUseCase, LoginUseCase, LoginUseCase>
+    with $Provider<LoginUseCase> {
+  LoginUseCaseProvider._()
+    : super(
+        from: null,
+        argument: null,
+        retry: null,
+        name: r'loginUseCaseProvider',
+        isAutoDispose: true,
+        dependencies: null,
+        $allTransitiveDependencies: null,
+      );
+
+  @override
+  String debugGetCreateSourceHash() => _$loginUseCaseHash();
+
+  @$internal
+  @override
+  $ProviderElement<LoginUseCase> $createElement($ProviderPointer pointer) =>
+      $ProviderElement(pointer);
+
+  @override
+  LoginUseCase create(Ref ref) {
+    return loginUseCase(ref);
+  }
+
+  /// {@macro riverpod.override_with_value}
+  Override overrideWithValue(LoginUseCase value) {
+    return $ProviderOverride(
+      origin: this,
+      providerOverride: $SyncValueProvider<LoginUseCase>(value),
+    );
+  }
+}
+
+String _$loginUseCaseHash() => r'8331b2822e94a6be9130a687200fab1799794d55';

@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/Users/soogil/Desktop/flutter_project/boilerplate -maxdepth 3 -not -path */.dart_tool/* -not -path */.git/* -not -path */build/* -not -path */.packages/* -type f -o -type d)",
+      "Bash(/tmp/tree_output.txt:*)",
+      "Read(//tmp/**)",
+      "WebSearch",
+      "WebFetch(domain:pub.dev)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:blog.dart.dev)",
+      "WebFetch(domain:dart.dev)",
+      "WebFetch(domain:dart.googlesource.com)",
+      "Bash(find . -name \"*.g.dart\" -not -path \"./.git/*\" -delete)",
+      "Bash(find . -name \"*.freezed.dart\" -not -path \"./.git/*\" -delete)",
+      "Bash(rm -rf settings/)",
+      "Bash(flutter pub:*)",
+      "Bash(dart run:*)",
+      "Bash(flutter --version)",
+      "Bash(flutter upgrade:*)",
+      "Bash(git config:*)",
+      "Bash(flutter analyze:*)"
+    ]
+  }
+}

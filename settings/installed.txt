@@ -1,4 +1,0 @@
-Dart
-com.localizely.flutter-intl
-GrepConsole
-io.flutter
