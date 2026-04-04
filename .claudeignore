@@ -1,0 +1,75 @@
+# Build outputs
+build/
+.dart_tool/
+.flutter-plugins
+.flutter-plugins-dependencies
+
+# Generated code (Freezed, Riverpod, JSON Serializable)
+*.g.dart
+*.freezed.dart
+*.gr.dart
+*.config.dart
+*.mocks.dart
+
+# IDE
+.idea/
+*.iml
+.vscode/
+*.code-workspace
+
+# Platform specific
+android/.gradle/
+android/app/build/
+android/build/
+android/local.properties
+android/key.properties
+android/*.jks
+ios/Pods/
+ios/.symlinks/
+ios/Flutter/Flutter.framework
+ios/Flutter/Flutter.podspec
+ios/Flutter/Generated.xcconfig
+ios/Flutter/app.flx
+ios/Flutter/engine/
+ios/Runner.xcworkspace/
+ios/Runner/GeneratedPluginRegistrant.*
+macos/Pods/
+macos/Flutter/
+linux/flutter/
+windows/flutter/
+
+# Dependencies
+.packages
+.pub-cache/
+.pub/
+pubspec.lock
+
+# Test & Coverage
+coverage/
+.test_coverage.dart
+*.lcov
+
+# Firebase config (sensitive)
+google-services.json
+GoogleService-Info.plist
+firebase_options.dart
+
+# Assets (large files)
+assets/**/*.png
+assets/**/*.jpg
+assets/**/*.jpeg
+assets/**/*.gif
+assets/**/*.webp
+assets/**/*.svg
+assets/**/*.mp4
+assets/**/*.mp3
+assets/**/*.ttf
+assets/**/*.otf
+
+# Misc
+.DS_Store
+*.log
+*.tmp
+*.bak
+.env
+.env.*
